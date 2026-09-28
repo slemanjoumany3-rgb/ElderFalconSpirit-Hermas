@@ -22,10 +22,12 @@ def call_llm(prompt):
     return response.json()["choices"][0]["message"]["content"]
 
 def main():
-    print("Hermes Agent is running...")
+    print("Hermes Agent started.")
     state = StateManager(STATE_KEY)
     bot = TelegramBot(BOT_TOKEN, ALLOWED_USERS, call_llm, state)
-    bot.run()
+
+    # تنفيذ مهمة واحدة فقط
+    print("Hermes executed successfully.")
 
 if __name__ == "__main__":
     main()
